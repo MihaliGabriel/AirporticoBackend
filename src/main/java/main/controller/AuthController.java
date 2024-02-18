@@ -56,6 +56,10 @@ public class AuthController {
         this.smsService = smsService;
     }
 
+    @GetMapping("/message")
+    public String showMessage() {
+        return "App deployed in Azure!";
+    }
     
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
