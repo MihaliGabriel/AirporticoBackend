@@ -41,7 +41,7 @@ public class RolesController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/roles")
     public ResponseEntity<Object> getAllRoles() {
         try {
@@ -66,7 +66,7 @@ public class RolesController {
      * @param size numarul de elemente afisate pe o pagina
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/admin/rolespag")
     public ResponseEntity<Object> getAllRoles(@RequestHeader("Language") String language, @RequestParam int page, @RequestParam int size) {
         try {
@@ -83,7 +83,7 @@ public class RolesController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createrole")
     public ResponseEntity<Object> createRole(@RequestBody RoleDTO roleDTO) {
         try {
@@ -111,7 +111,7 @@ public class RolesController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/searchroles")
     public ResponseEntity<Object> searchRoles(@RequestHeader("Language") String language, @RequestBody RoleDTO roleDTO) {
         try {
@@ -130,7 +130,7 @@ public class RolesController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updaterole")
     public ResponseEntity<Object> updateRole(@RequestBody RoleDTO roleDTO) {
         try {

@@ -52,7 +52,7 @@ public class CompanyController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/companies")
     public ResponseEntity<Object> getCompanies(@RequestHeader("Language") String language) {
         try {
@@ -78,7 +78,7 @@ public class CompanyController {
      * @param size numarul de elemente afisate pe o pagina
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/companies")
     public ResponseEntity<Object> getCompanies(@RequestHeader("Language") String language, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int size) {
         try {
@@ -97,7 +97,7 @@ public class CompanyController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/searchcompanies")
     public ResponseEntity<Object> searchCompany(@RequestHeader("Language") String language, @RequestBody CompanyDTO companyDTO) {
         try {
@@ -121,7 +121,7 @@ public class CompanyController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createcompany")
     public ResponseEntity<Object> createCompany(@RequestBody CompanyDTO companyDTO) {
         try {
@@ -155,7 +155,7 @@ public class CompanyController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updatecompany")
     public ResponseEntity<Object> updateCompany(@RequestBody CompanyDTO companyDTO) {
         try {
@@ -191,7 +191,7 @@ public class CompanyController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/deletecompany")
     public ResponseEntity<Object> deleteCompany(@RequestHeader("Language") String language, @RequestBody CompanyDTO companyDTO) {
         try {

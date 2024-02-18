@@ -37,7 +37,7 @@ public class PersonController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("admin/people")
     public ResponseEntity<Object> getAllPeople() {
         try {
@@ -56,7 +56,7 @@ public class PersonController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/createperson")
     public ResponseEntity<Object> createPerson(@RequestBody PersonDTO personDTO) {
         try {
@@ -94,7 +94,7 @@ public class PersonController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/updateperson")
     public ResponseEntity<Object> updatePerson(@RequestBody PersonDTO personDTO) {
         try {
@@ -120,7 +120,7 @@ public class PersonController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/deleteperson")
     public ResponseEntity<Object> deletePerson(@RequestBody PersonDTO personDTO) {
         try {
@@ -139,7 +139,7 @@ public class PersonController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/personbyuser")
     public ResponseEntity<Object> getPersonByUser(@RequestBody PersonDTO personDTO) {
         try {

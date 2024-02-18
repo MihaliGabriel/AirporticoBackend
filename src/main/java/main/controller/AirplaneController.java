@@ -55,7 +55,7 @@ public class AirplaneController {
         this.ticketService = ticketService;
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/airplanes")
     public ResponseEntity<Object> getAllAirplanes(@RequestHeader("Language") String language) {
         try {
@@ -73,7 +73,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/airplanebyflightname")
     public ResponseEntity<Object> getAirplaneByFlightName(@RequestHeader("Language") String language, @RequestBody FlightDTO flightDTO) {
         try {
@@ -98,7 +98,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/admin/airplanes")
     public ResponseEntity<Object> getAirplanes(@RequestHeader("Language") String language, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int size) {
         try {
@@ -117,7 +117,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createairplane")
     public ResponseEntity<Object> createAirplane(@RequestBody AirplaneDTO airplaneDTO) {
         try {
@@ -139,7 +139,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updateairplane")
     public ResponseEntity<Object> updateAirplane(@RequestBody AirplaneDTO airplaneDTO) {
         try {
@@ -161,7 +161,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/deleteairplane")
     public ResponseEntity<Object> deleteAirplane(@RequestHeader("Language") String language, @RequestBody AirplaneDTO airplaneDTO) {
         try {
@@ -180,7 +180,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/reserveairplaneseats")
     public ResponseEntity<Object> reserveAirplaneSeats(@RequestBody BuyTicketDTO buyTicket) {
         try {
@@ -202,7 +202,7 @@ public class AirplaneController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/freeairplaneseats")
     public ResponseEntity<Object> freeReservedAirplaneSeats(@RequestBody TicketDTO ticketDTO) {
         try {

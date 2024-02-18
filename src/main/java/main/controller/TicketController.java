@@ -55,7 +55,7 @@ public class TicketController {
     }
 
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/updatereservedticket")
     public ResponseEntity<Object> updateReservedTicket(@RequestBody TicketDTO ticketDTO) {
         try {
@@ -78,7 +78,7 @@ public class TicketController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/tickets")
     public ResponseEntity<Object> getAllTickets(@RequestHeader("Language") String language) {
         try {
@@ -209,7 +209,7 @@ public class TicketController {
     }
 
     @Async
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/buyticket")
     public ResponseEntity<Object> buyTicket(@RequestBody BuyTicketDTO buyTicketDTO) {
         try {
@@ -410,7 +410,7 @@ public class TicketController {
         return ticketOwner;
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/reserveticket")
     public ResponseEntity<Object> reserveTicket(@RequestBody BuyTicketDTO buyTicketDTO) {
         try {
@@ -431,7 +431,7 @@ public class TicketController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/ticketsbyuser")
     public ResponseEntity<Object> getTicketsByUser(@RequestBody UserDTO userDTO) {
         try {

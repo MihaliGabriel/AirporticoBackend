@@ -33,7 +33,7 @@ public class VoucherController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/getvoucherbycode")
     public ResponseEntity<Object> getVoucher(@RequestBody VoucherDTO voucherDTO) {
         try {

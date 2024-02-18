@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
 @RequestMapping("/auth")
 public class AuthController {
 

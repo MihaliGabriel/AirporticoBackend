@@ -54,7 +54,7 @@ public class LocationController {
      * care sunt prelucrate ca si erori de front-end.
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/locations")
     public ResponseEntity<Object> getAllLocations(@RequestHeader("Language") String language) {
         try {
@@ -81,7 +81,7 @@ public class LocationController {
      * @param size numarul de elemente afisate pe o pagina
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/locations")
     public ResponseEntity<Object> getAllLocations(@RequestHeader("Language") String language, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int size) {
         try {
@@ -99,7 +99,7 @@ public class LocationController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createlocation")
     public ResponseEntity<Object> createLocation(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
         try {
@@ -123,7 +123,7 @@ public class LocationController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updatelocation")
     public ResponseEntity<Object> updateLocation(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
         try {
@@ -150,7 +150,7 @@ public class LocationController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/deletelocation")
     public ResponseEntity<Object> deleteLocation(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
         try {
@@ -169,7 +169,7 @@ public class LocationController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/searchlocations")
     public ResponseEntity<Object> searchLocations(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
         try {

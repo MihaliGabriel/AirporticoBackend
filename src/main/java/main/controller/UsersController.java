@@ -47,7 +47,7 @@ public class UsersController {
      * @return Tipul metodei este ResponseEntity<Object> deoarece metoda returneaza obiecte de tip DTO, dar si map-uri de erori pentru exceptii,
      *      * care sunt prelucrate ca si erori de front-end.
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/users")
     public ResponseEntity<Object> getAllUsers(@RequestHeader("Language") String language) {
         try {
@@ -72,7 +72,7 @@ public class UsersController {
      * @param size numarul de elemente afisate pe o pagina
      * @return
      */
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/admin/users")
     public ResponseEntity<Object> getAllUsers(@RequestHeader("Language") String language, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "4") int size) {
         try {
@@ -88,7 +88,7 @@ public class UsersController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/searchusers")
     public ResponseEntity<Object> searchUsers(@RequestHeader("Language") String language, @RequestBody UserDTO userDTO) {
         try {
@@ -141,7 +141,7 @@ public class UsersController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createuser")
     public ResponseEntity<Object> createUser(@RequestBody UserDTO userDTO) {
         try {
@@ -167,7 +167,7 @@ public class UsersController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/deleteuser")
     public ResponseEntity<Object> deleteUser(@RequestBody UserDTO userDTO) {
         try {
@@ -185,7 +185,7 @@ public class UsersController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("admin/updateuser")
     public ResponseEntity<Object> updateUser(@RequestBody UserDTO userDTO) {
         try {
