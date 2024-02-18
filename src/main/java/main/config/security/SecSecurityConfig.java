@@ -57,7 +57,7 @@ public class SecSecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers("/auth/login", "/auth/register", "/api/reservedticket", "/api/updatereservedticket").permitAll()
+                .antMatchers("/auth/message", "/auth/login", "/auth/register", "/api/reservedticket", "/api/updatereservedticket").permitAll()
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .antMatchers("/api/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated();

@@ -57,8 +57,8 @@ public class AuthController {
     }
 
     @GetMapping("/message")
-    public String showMessage() {
-        return "App deployed in Azure!";
+    public ResponseEntity<Object> showMessage() {
+        return ResponseEntity.ok("App deployed in Azure!");
     }
     
     @GetMapping("/register")
