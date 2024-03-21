@@ -3,18 +3,14 @@ package main.dto;
 import java.util.List;
 
 public class TicketDTO {
-
     private Long id;
-
     private Long userId;
     private String ticketName;
     private String flightName;
     private PersonDTO person;
     private List<PassengerDTO> passengers;
     private Double price;
-
     private String ticketType;
-
     private String ticketStatus;
 
     public String getFlightName() {

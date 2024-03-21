@@ -59,7 +59,7 @@ public class TicketController {
     @PostMapping("/updatereservedticket")
     public ResponseEntity<Object> updateReservedTicket(@RequestBody TicketDTO ticketDTO) {
         try {
-            System.out.println("TicketDTO id" + ticketDTO.getId());
+            logger.info("TicketDTO id: {}", ticketDTO.getId());
             Ticket ticket = ticketService.getTicketById(ticketDTO.getId());
             ticket.setTicketStatus(TicketStatus.BOUGHT);
 

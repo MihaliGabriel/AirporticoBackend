@@ -1,6 +1,7 @@
 package main.service;
 
 import main.dto.UserDTO;
+import main.model.AuthenticationMethod;
 import main.model.exceptions.FieldNotUniqueOrNullException;
 import main.model.User;
 import org.springframework.data.domain.Page;
@@ -12,7 +13,7 @@ import java.util.List;
      List<User> getUsers();
 
      Page<User> getUsers(Pageable pageable);
-
+     User getUserByProviderIdAndProvider(String providerId, AuthenticationMethod authenticationMethod);
      void addUser(User user) throws FieldNotUniqueOrNullException;
 
      User getUserById(Long id);

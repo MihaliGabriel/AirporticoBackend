@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="airports", indexes = {@Index(name="airport_name_idx", columnList = "airport_name", unique = true)})
 public class Airport {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

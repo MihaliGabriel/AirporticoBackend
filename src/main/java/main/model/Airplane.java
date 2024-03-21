@@ -18,6 +18,7 @@ public class Airplane {
     @Column(name="airplane_columns", length = 100, unique=false, nullable = false)
     private Integer columns;
 
+
     public Long getId() {
         return id;
     }

@@ -32,6 +32,12 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain) throws ServletException, IOException {
 
         try {
+            String path = httpServletRequest.getRequestURI();
+            //the access token OAuth is in the authorization header, so I need to bypass the JWT filter for OAuth login
+            if ("/login/oauth2/code/google".equals(path) || "/login/oauth2/code/facebook".equals(path)) {
+                filterChain.doFilter(httpServletRequest, httpServletResponse);
+                return;
+            }
             String token = getJWTFromRequest(httpServletRequest);
             if (StringUtils.hasText(token) && tokenGenerator.validateToken(token)) {
                 String username = tokenGenerator.getUsernameFromJWT(token);

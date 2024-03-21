@@ -1,13 +1,9 @@
 package main.dto;
 
 public class RouteDTO {
-
-
     private Long id;
-
     private String departureAirport;
     private String arrivalAirport;
-
     private String routeName;
 
     public Long getId() {

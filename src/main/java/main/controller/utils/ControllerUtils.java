@@ -4,11 +4,10 @@ import main.dto.*;
 import main.model.*;
 import main.repository.TextTypeEntityRepository;
 import main.service.*;
-import org.apache.commons.codec.language.bm.Lang;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
-import javax.xml.soap.Text;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;

@@ -2,9 +2,7 @@ package main.dto;
 
 public class PassengerDTO {
     private Long id;
-
     private Long ticketId;
-
     private String ticketName;
     private String firstName;
     private String lastName;
@@ -13,7 +11,6 @@ public class PassengerDTO {
     private Integer nrBigLuggage = 0;
     private Integer nrMediumLuggage = 0;
     private Integer nrSmallLuggage = 0;
-
     private String seat;
 
     public Long getId() {

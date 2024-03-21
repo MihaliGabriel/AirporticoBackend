@@ -1,7 +1,6 @@
 package main.dto;
 
 public class CompanyDTO {
-
     private Long id;
     private String companyCode;
     private String companyName;

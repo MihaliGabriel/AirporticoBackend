@@ -1,7 +1,6 @@
 package main.dto;
 
 public class LocationDTO {
-
     private Long id;
 
     private String city;

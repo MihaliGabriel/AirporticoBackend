@@ -1,10 +1,8 @@
 package main.controller;
 
-import com.mysql.cj.x.protobuf.MysqlxExpr;
 import main.controller.utils.ControllerUtils;
 import main.dto.*;
 import main.model.Airplane;
-import main.model.Flight;
 import main.model.Language;
 import main.model.exceptions.FieldInvalidException;
 import main.repository.LanguageRepository;
@@ -25,7 +23,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
-import javax.xml.ws.Response;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

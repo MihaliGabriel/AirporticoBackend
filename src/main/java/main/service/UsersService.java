@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsersService implements IUsersService {
@@ -44,10 +45,7 @@ public class UsersService implements IUsersService {
         Long count = userRepository.countByUsername(username);
         if (count != 0 && type.equals(INSERT))
             return false;
-        if (count > 1 && type.equals("UPDATE")) {
-            return false;
-        }
-        return true;
+        return count <= 1 || !type.equals("UPDATE");
     }
 
     private boolean checkNullUsername(String username) {
@@ -116,6 +114,26 @@ public class UsersService implements IUsersService {
         userRepository.deleteById(id);
     }
 
+    public User getUserByProviderIdAndProvider(String providerId, AuthenticationMethod authenticationMethod) {
+        Optional<User> user = userRepository.findByUsernameAndAuthenticationMethod(providerId, authenticationMethod);
+
+        return user.orElse(null);
+    }
+
+    /*public User getUserByOidcUser(OidcUser oidcUser) {
+        //gets subject claim from OpenID Connect user
+        String username = oidcUser.getSubject();
+
+        //finds in database the user with the username claim.
+        Optional<User> userFromDatabase = userRepository.findByUsernameOptional(username);
+
+        if(userFromDatabase.isPresent())
+            return userFromDatabase.get();
+        else {
+            User user = new User();
+            user.
+        }
+    }*/
     public void updateUser(User user) throws FieldNotUniqueOrNullException {
 
         User userFromDb = userRepository.getById(user.getId());

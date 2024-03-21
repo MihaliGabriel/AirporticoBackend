@@ -10,7 +10,6 @@ import main.repository.LanguageRepository;
 import main.repository.TextTypeEntityRepository;
 import main.service.ILocationService;
 import main.service.ILocationTranslationService;
-import org.apache.commons.codec.language.bm.Lang;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

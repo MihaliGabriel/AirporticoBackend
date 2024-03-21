@@ -184,7 +184,7 @@ public class FlightController {
 
     @CrossOrigin({"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/getseatmap")
-    private ResponseEntity<Object> getSeatMap(@RequestBody FlightDTO flightDTO) {
+    public ResponseEntity<Object> getSeatMap(@RequestBody FlightDTO flightDTO) {
         try {
             Flight flight = flightService.getFlightByName(flightDTO.getName());
 
@@ -245,12 +245,12 @@ public class FlightController {
             int departureHour = flightDTO.getDepartureDate().getHour();
             int departureMinute = flightDTO.getDepartureDate().getMinute();
 
-            Integer airplaneSeats = (airplane.getColumns() * airplane.getRows());
+            int airplaneSeats = (airplane.getColumns() * airplane.getRows());
 
             //60% economy seats, 30% first class seats, 10% business seats
-            Integer economySeats = (int) (0.6 * airplaneSeats);
-            Integer firstClassSeats = (int) (0.3 * airplaneSeats);
-            Integer businessSeats = airplaneSeats - (economySeats + firstClassSeats);
+            int economySeats = (int) (0.6 * airplaneSeats);
+            int firstClassSeats = (int) (0.3 * airplaneSeats);
+            int businessSeats = airplaneSeats - (economySeats + firstClassSeats);
 
             logger.info("Airplane calculated seats: economy seats: {}, first class seats: {}, business seats: {}", economySeats, firstClassSeats, businessSeats);
 
@@ -502,7 +502,8 @@ public class FlightController {
             List<Flight> cheapestFlights = new ArrayList<>();
             List<FlightDTO> cheapestFlightDTOS = new ArrayList<>();
 
-            System.out.println(flights);
+            logger.info("Flights: {}", flights);
+
             if (flights.size() <= 3) {
                 for (Flight flight : flights) {
                     cheapestFlights.add(flight);

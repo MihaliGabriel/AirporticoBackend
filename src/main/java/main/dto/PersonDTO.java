@@ -4,17 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 public class PersonDTO {
-
     private Long id;
-
     private String firstName;
-
     private String lastName;
-
     private Long userId;
-
     private String email;
-
     private String phoneNumber;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")

@@ -54,6 +54,7 @@ public class AirportController {
      * Tipul metodei este ResponseEntity<Object> deoarece metoda returneaza obiecte de tip DTO, dar si map-uri de erori pentru exceptii,
      * care sunt prelucrate ca si erori de front-end.
      * @return
+     * Returns a ResponseEntity<Object>
      */
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/airports")
@@ -82,6 +83,7 @@ public class AirportController {
      * @param page pagina curenta care trebuie afisata
      * @param size numarul de elemente afisate pe o pagina
      * @return
+     * Returns a ResponseEntity<Object>
      */
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @GetMapping("/admin/airports")

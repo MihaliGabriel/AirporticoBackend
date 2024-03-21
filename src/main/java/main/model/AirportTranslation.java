@@ -4,7 +4,6 @@ import main.utils.Util;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import javax.xml.soap.Text;
 import java.util.Date;
 
 @Entity

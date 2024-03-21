@@ -21,15 +21,15 @@ import java.util.List;
 public class PersonController {
 
     private static final String MESSAGE = "message";
-
     private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
-
-    @Autowired
     IPersonService personService;
-
-    @Autowired
     IUsersService usersService;
 
+    @Autowired
+    public PersonController(IPersonService personService, IUsersService usersService) {
+        this.personService = personService;
+        this.usersService = usersService;
+    }
 
     /**
      * @Author GXM

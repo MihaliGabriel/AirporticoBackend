@@ -1,8 +1,6 @@
 package main.dto;
 
 public class AirportDTO {
-
-
     private Long id;
     private String name;
     private String city;

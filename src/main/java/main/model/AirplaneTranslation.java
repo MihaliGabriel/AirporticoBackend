@@ -8,13 +8,13 @@ import java.util.Date;
 
 @Entity
 @Table(name="mltxt_airplane",  uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"ref_language", "ref_airplane", "ref_text_type"})
-})
+        @UniqueConstraint(columnNames = {"ref_language", "ref_airplane", "ref_text_type"})}
+        )
 public class AirplaneTranslation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @ManyToOne
     @JoinColumn(name="ref_language", nullable = false)
     private Language language;

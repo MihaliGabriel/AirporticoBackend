@@ -22,6 +22,10 @@ public class User {
     @Column(name="password", length=100, nullable = false, unique = false)
     private String password;
 
+    @Convert(converter = AuthenticationMethodConverter.class)
+    @Column(name="auth_method", nullable = false, unique = false)
+    private AuthenticationMethod authenticationMethod;
+
     @ManyToOne
     @JoinColumn(name="ref_role", nullable = false)
     private Role role;
@@ -30,7 +34,6 @@ public class User {
     @Column(name="created_at", nullable = true, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-
 
     public Long getId() {
         return id;
@@ -66,6 +69,14 @@ public class User {
 
     public Date getCreatedAt() {
         return createdAt;
+    }
+
+    public AuthenticationMethod getAuthenticationMethod() {
+        return authenticationMethod;
+    }
+
+    public void setAuthenticationMethod(AuthenticationMethod authenticationMethod) {
+        this.authenticationMethod = authenticationMethod;
     }
 
     public void setCreatedAt(Date createdAt) {

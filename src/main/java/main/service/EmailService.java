@@ -41,6 +41,7 @@ public class EmailService {
     @Autowired
     private IQRCodeService qrCodeService;
     private static final Logger logger = LoggerFactory.getLogger(EmailService.class);
+    private final String BODY_HTML = "</h1><body></html>";
     public void sendTicketEmail(String receiverEmail) throws MessagingException, GeneralSecurityException, IOException {
         try {
             Drive driveService = CloudService.getDriveService();
@@ -66,7 +67,6 @@ public class EmailService {
                     .execute();
 
             String downloadUrl = "https://drive.google.com/uc?export=download&id=" + fileId;
-            Path qrCode = qrCodeService.generateQRCodeFile(downloadUrl, 200, 200, "qrCode.png");
 
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -88,9 +88,6 @@ public class EmailService {
             throw new RuntimeException(e);
         }
         catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        catch (WriterException e) {
             throw new RuntimeException(e);
         }
 
@@ -170,6 +167,16 @@ public class EmailService {
 //        javaMailSender.send(message);
     }
 
+    public void sendPasswordOAuthEmail(String receiverEmail, String username, String password) throws MessagingException {
+
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        helper.setTo(receiverEmail);
+        helper.setText("<html><body><h1>Here are your user details to log in our application without OAuth! Username:" + username + "Password: " + password + BODY_HTML, true);
+        helper.setSubject("Your username and password");
+        javaMailSender.send(message);
+    }
+
     public void sendResetPasswordEmail(User user, String receiverEmail) {
         try {
             logger.info("Reseting password email.. {}", user);
@@ -230,7 +237,7 @@ public class EmailService {
                 helper.setText("<html><body><h1>Happy birthday! Here is a voucher for your next flight: " + voucher.getCode() + "</h1><body></html>", true);
                 break;
             case FIVE_YEAR_VOUCHER:
-                helper.setText("<html><body><h1>Congratulations for flying for 5 years with us! Here is a voucher for your next flight: " + voucher.getCode() + "</h1><body></html>", true);
+                helper.setText("<html><body><h1>Congratulations for flying for 5 years with us! Here is a voucher for your next flight: " + voucher.getCode() + BODY_HTML, true);
                 break;
         }
         helper.setSubject("Voucher");

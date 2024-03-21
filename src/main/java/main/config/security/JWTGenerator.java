@@ -19,21 +19,34 @@ public class JWTGenerator {
         Date currentDate = Date.from(now);
         Date expiryDate = Date.from(expiry);
 
-        String token = Jwts.builder()
+        return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(currentDate)
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, SecurityConstants.JWT_SECRET)
                 .compact();
-
-        return token;
     }
 
+    public String generateToken(String username) {
+        Instant now = Instant.now();
+        Instant expiry = now.plusSeconds(SecurityConstants.JWT_EXPIRATION / 1000); // Assuming JWT_EXPIRATION is in milliseconds
+
+        Date currentDate = Date.from(now);
+        Date expiryDate = Date.from(expiry);
+
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(currentDate)
+                .setExpiration(expiryDate)
+                .signWith(SignatureAlgorithm.HS512, SecurityConstants.JWT_SECRET)
+                .compact();
+    }
     public String getUsernameFromJWT(String token) {
         Claims claims = Jwts.parser()
                 .setSigningKey(SecurityConstants.JWT_SECRET)
                 .parseClaimsJws(token)
                 .getBody();
+
         return claims.getSubject();
     }
 
@@ -41,17 +54,23 @@ public class JWTGenerator {
         try {
             Jwts.parser().setSigningKey(SecurityConstants.JWT_SECRET).parseClaimsJws(token);
             return true;
-        } catch (SignatureException ex) {
+        }
+        catch (SignatureException ex) {
             throw new AuthenticationCredentialsNotFoundException("Invalid JWT signature");
-        } catch (MalformedJwtException ex) {
+        }
+        catch (MalformedJwtException ex) {
             throw new AuthenticationCredentialsNotFoundException("Invalid JWT token");
-        } catch (ExpiredJwtException ex) {
+        }
+        catch (ExpiredJwtException ex) {
             throw new AuthenticationCredentialsNotFoundException("Expired JWT token");
-        } catch (UnsupportedJwtException ex) {
+        }
+        catch (UnsupportedJwtException ex) {
             throw new AuthenticationCredentialsNotFoundException("Unsupported JWT token");
-        } catch (IllegalArgumentException ex) {
+        }
+        catch (IllegalArgumentException ex) {
             throw new AuthenticationCredentialsNotFoundException("JWT claims string is empty");
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             throw new AuthenticationCredentialsNotFoundException("JWT was expired, or incorrect");
         }
     }

@@ -1,7 +1,6 @@
 package main.dto;
 
 public class AirplaneDTO {
-
     private Long id;
     private String name;
     private Integer columns;

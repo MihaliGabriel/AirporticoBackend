@@ -3,15 +3,12 @@ package main.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import main.model.AirplaneSeatType;
 import main.utils.LocalDateTimeDeserializer;
 import main.utils.LocalDateTimeSerializer;
 
-import javax.persistence.PostLoad;
 import java.time.LocalDateTime;
 
 public class FlightDTO {
-
     private Long id;
     private String name;
 
