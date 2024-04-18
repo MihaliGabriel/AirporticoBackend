@@ -1,8 +1,12 @@
 package main.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class AirportDTO {
     private Long id;
+    @NotBlank(message = "Airport name is required")
     private String name;
+    @NotBlank(message = "Airport city is required")
     private String city;
 
     public Long getId() {

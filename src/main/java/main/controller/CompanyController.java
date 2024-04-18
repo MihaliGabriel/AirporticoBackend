@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -123,7 +124,7 @@ public class CompanyController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createcompany")
-    public ResponseEntity<Object> createCompany(@RequestBody CompanyDTO companyDTO) {
+    public ResponseEntity<Object> createCompany(@Valid @RequestBody CompanyDTO companyDTO) {
         try {
             Company company = new Company();
 
@@ -157,7 +158,7 @@ public class CompanyController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updatecompany")
-    public ResponseEntity<Object> updateCompany(@RequestBody CompanyDTO companyDTO) {
+    public ResponseEntity<Object> updateCompany(@Valid @RequestBody CompanyDTO companyDTO) {
         try {
             logger.info("Update company");
             Company company = new Company();

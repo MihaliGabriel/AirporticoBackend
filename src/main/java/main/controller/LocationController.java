@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -100,7 +101,7 @@ public class LocationController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createlocation")
-    public ResponseEntity<Object> createLocation(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
+    public ResponseEntity<Object> createLocation(@RequestHeader("Language") String language, @Valid @RequestBody LocationDTO locationDTO) {
         try {
             logger.info("LocationDTO: {}", locationDTO);
 
@@ -124,7 +125,7 @@ public class LocationController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updatelocation")
-    public ResponseEntity<Object> updateLocation(@RequestHeader("Language") String language, @RequestBody LocationDTO locationDTO) {
+    public ResponseEntity<Object> updateLocation(@RequestHeader("Language") String language, @Valid @RequestBody LocationDTO locationDTO) {
         try {
 
             Location location = ControllerUtils.mapLocationDtoToEntity(locationDTO);

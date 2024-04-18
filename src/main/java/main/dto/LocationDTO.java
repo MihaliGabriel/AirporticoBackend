@@ -1,12 +1,17 @@
 package main.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class LocationDTO {
     private Long id;
 
+    @NotBlank
     private String city;
 
+    @NotBlank
     private String country;
 
+    @NotBlank
     private String locationCode;
 
     public Long getId() {

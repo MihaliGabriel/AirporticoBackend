@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.xml.bind.ValidationException;
 import java.util.*;
 
@@ -224,7 +225,7 @@ public class FlightController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createflight")
-    public ResponseEntity<Object> createFlight(@RequestHeader("Langugage") String language, @RequestBody FlightDTO flightDTO) {
+    public ResponseEntity<Object> createFlight(@RequestHeader("Langugage") String language, @Valid @RequestBody FlightDTO flightDTO) {
         try {
             Flight flight = new Flight();
 
@@ -303,7 +304,7 @@ public class FlightController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updateflight")
-    public ResponseEntity<Object> updateFlight(@RequestHeader("Langugage") String language, @RequestBody FlightDTO flightDTO) {
+    public ResponseEntity<Object> updateFlight(@RequestHeader("Langugage") String language, @Valid @RequestBody FlightDTO flightDTO) {
         try {
             Route route = routeService.getRouteById(flightDTO.getRouteId());
             Company company = companyService.getCompanyById(flightDTO.getCompanyId());

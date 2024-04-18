@@ -23,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -116,7 +117,7 @@ public class AirplaneController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createairplane")
-    public ResponseEntity<Object> createAirplane(@RequestBody AirplaneDTO airplaneDTO) {
+    public ResponseEntity<Object> createAirplane(@Valid @RequestBody AirplaneDTO airplaneDTO) {
         try {
             Airplane airplane = new Airplane();
             airplane.setName(airplaneDTO.getName());
@@ -138,7 +139,7 @@ public class AirplaneController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updateairplane")
-    public ResponseEntity<Object> updateAirplane(@RequestBody AirplaneDTO airplaneDTO) {
+    public ResponseEntity<Object> updateAirplane(@Valid @RequestBody AirplaneDTO airplaneDTO) {
         try {
             Airplane airplane = new Airplane();
             airplane.setId(airplaneDTO.getId());

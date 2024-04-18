@@ -1,9 +1,14 @@
 package main.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class AirplaneDTO {
     private Long id;
+    @NotBlank(message = "Airplane name is required")
     private String name;
+    @NotBlank(message = "Airplane columns number is required")
     private Integer columns;
+    @NotBlank(message = "Airplane rows number is required")
     private Integer rows;
 
     public Long getId() {

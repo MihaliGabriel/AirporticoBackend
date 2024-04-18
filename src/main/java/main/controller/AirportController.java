@@ -20,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -167,7 +168,7 @@ public class AirportController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/createairport")
-    public ResponseEntity<Object> createAirport(@RequestBody AirportDTO airportDTO) {
+    public ResponseEntity<Object> createAirport(@Valid @RequestBody AirportDTO airportDTO) {
         try {
             Airport airport = new Airport();
 
@@ -195,7 +196,7 @@ public class AirportController {
 
     @CrossOrigin(origins = {"http://localhost:4200", "https://thankful-coast-03f536003.4.azurestaticapps.net"})
     @PostMapping("/admin/updateairport")
-    public ResponseEntity<Object> updateAirport(@RequestBody AirportDTO airportDTO) {
+    public ResponseEntity<Object> updateAirport(@Valid @RequestBody AirportDTO airportDTO) {
         try {
             Airport airport = new Airport();
             Location location = locationService.getLocationByCity(airportDTO.getCity());

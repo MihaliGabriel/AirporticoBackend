@@ -6,25 +6,29 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import main.utils.LocalDateTimeDeserializer;
 import main.utils.LocalDateTimeSerializer;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 public class FlightDTO {
     private Long id;
     private String name;
 
+    @NotBlank(message = "Departure date is required")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime departureDate;
 
 
+    @NotBlank(message = "Arrival date is required")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime arrivalDate;
 
+    @NotBlank(message = "Route id is required")
     private Long routeId;
-
+    @NotBlank(message = "Company id is required")
     private Long companyId;
 
     private String routeName;
@@ -39,10 +43,11 @@ public class FlightDTO {
 
     private Integer remainingFirstClassSeats;
 
+    @NotBlank(message = "First class price is required")
     private Double firstClassPrice;
-
+    @NotBlank(message = "Business class price is required")
     private Double businessPrice;
-
+    @NotBlank(message = "Economy class price is required")
     private Double economyPrice;
 
     private Double discountedBusinessPrice;
@@ -74,13 +79,13 @@ public class FlightDTO {
     private String sortByDuration;
 
     private boolean[][] occupiedSeats;
-
+    @NotBlank(message = "Airplane name is required")
     private String airplaneName;
-
+    @NotBlank(message = "Economy seats is required")
     private Integer economySeats;
-
+    @NotBlank(message = "First class seats is required")
     private Integer firstClassSeats;
-
+    @NotBlank(message = "Business class seats is required")
     private Integer businessSeats;
 
     public boolean[][] getOccupiedSeats() {

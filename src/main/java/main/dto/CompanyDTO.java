@@ -1,11 +1,18 @@
 package main.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class CompanyDTO {
     private Long id;
+    @NotBlank(message = "Company code is required")
     private String companyCode;
+    @NotBlank(message = "Company name is required")
     private String companyName;
+    @NotBlank(message = "Company phone is required")
     private String phone;
-
+    @NotBlank(message = "Company email is required")
+    @Email(message = "Invalid email format")
     private String email;
 
     public void setCompanyName(String companyName) {
